@@ -20,7 +20,7 @@ const Model = function () {
         },
         kanyeQuote: kanyeData.quote,
         pokemon: {
-            name: pokeData.name,
+            name: getProperPokemonName(pokeData.name),
             image: pokeData.sprites.front_default
         },
         aboutMe: baconData[0],
@@ -32,6 +32,11 @@ const Model = function () {
         _userData.friends.push(friendsArr[i].name.first +" " + friendsArr[i].name.last);
        }
         
+    }
+
+    function getProperPokemonName(str){
+        const name = str.charAt(0).toUpperCase() + str.slice(1);
+        return name;
     }
     function getPageData(){
         return _userData;
