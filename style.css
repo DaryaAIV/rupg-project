@@ -45,7 +45,7 @@ body{
     width: 70%;
 
 }
-#btn-generate{
+#btn-generate, #btn-save, #btn-load{
     background-color: lightcoral;
     color: white;
     border: none;
@@ -57,5 +57,13 @@ body{
     box-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 #btn-generate:hover{
+    background-color: indianred;
+}
+
+#btn-save:hover{
+    background-color: indianred;
+}
+
+#btn-load:hover{
     background-color: indianred;
 }
