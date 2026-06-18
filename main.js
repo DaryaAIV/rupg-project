@@ -1,0 +1,20 @@
+addEventListener("DOMContentLoaded", () => {
+
+    const model = Model();
+    const render = Renderer();
+
+    async function initApp() {
+        try{
+            await model.loadPageData();
+            const currData = model.getPageData();
+            render.renderPage(currData);
+        }
+        catch(error) {
+            console.error("Could not load Page:",error );
+        }
+    }
+
+    document.querySelector("#btn-generate").addEventListener("click", initApp);
+
+
+});

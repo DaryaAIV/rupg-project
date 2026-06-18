@@ -6,7 +6,7 @@ const Model = function () {
         const [usersData, kanyeData, pokeData, baconData] = await Promise.all([
             fetch('https://randomuser.me/api/?results=7').then(r => r.json()),
             fetch('https://api.kanye.rest').then(r => r.json()),
-            fetch('https://pokeapi.co/api/v2/pokemon/${pokemonId}').then(r => r.json()),
+            fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`).then(r => r.json()),
             fetch('https://baconipsum.com/api/?type=meat-and-filler&paras=1').then(r => r.json())
         ]);
         const friendsArr = usersData.results.slice(1);
