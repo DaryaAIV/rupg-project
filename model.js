@@ -21,7 +21,7 @@ const Model = function () {
         kanyeQuote: kanyeData.quote,
         pokemon: {
             name: pokeData.name,
-            Image: pokeData.sprites.front_default
+            image: pokeData.sprites.front_default
         },
         aboutMe: baconData[0],
         friends: []
