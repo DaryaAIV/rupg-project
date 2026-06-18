@@ -14,6 +14,7 @@ addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    initApp();
     document.querySelector("#btn-generate").addEventListener("click", initApp);
 
 
