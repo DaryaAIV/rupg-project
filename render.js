@@ -10,7 +10,8 @@ const Renderer = function () {
     function renderQuote(quote) {
         const container = document.querySelector("#quote-container");
         container.innerHTML = `<h2>Favorite quote:</h2>
-                                <p>${quote}</p>`;
+                                <p>"${quote}"</p>
+                                <p>- Kanye West</p>`;
     }
 
     function renderPokemon(pokemon) {
@@ -37,7 +38,7 @@ const Renderer = function () {
 
     function renderDropdown(usersObj) {
         const container = document.querySelector("#saved-users-dropdown");
-        let usersStr = "";
+        let usersStr = `<option value=""hidden>Saved Users</option>`;
         // for in loop iterates through the object keys, saved usernames
         for (const userName in usersObj) {
             usersStr += `<option value = "${userName}">${userName}</option>`;
