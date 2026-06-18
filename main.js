@@ -16,6 +16,9 @@ addEventListener("DOMContentLoaded", () => {
 
     initApp();
     document.querySelector("#btn-generate").addEventListener("click", initApp);
+    document.querySelector("#btn-save").addEventListener("click", () => {
+        model.saveUserPage();
+    })
 
 
 });

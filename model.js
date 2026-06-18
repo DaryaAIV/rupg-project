@@ -11,38 +11,55 @@ const Model = function () {
         ]);
         const friendsArr = usersData.results.slice(1);
 
-       _userData = {
-        mainUser: {
-            name: usersData.results[0].name.first +" " + usersData.results[0].name.last,
-            city: usersData.results[0].location.city,
-            state: usersData.results[0].location.state,
-            picture: usersData.results[0].picture.large
-        },
-        kanyeQuote: kanyeData.quote,
-        pokemon: {
-            name: getProperPokemonName(pokeData.name),
-            image: pokeData.sprites.front_default
-        },
-        aboutMe: baconData[0],
-        friends: []
-       };
+        _userData = {
+            mainUser: {
+                name: usersData.results[0].name.first + " " + usersData.results[0].name.last,
+                city: usersData.results[0].location.city,
+                state: usersData.results[0].location.state,
+                picture: usersData.results[0].picture.large
+            },
+            kanyeQuote: kanyeData.quote,
+            pokemon: {
+                name: getProperPokemonName(pokeData.name),
+                image: pokeData.sprites.front_default
+            },
+            aboutMe: baconData[0],
+            friends: []
+        };
 
-       // loop through the sliced friends array and push their full names to user data
-       for (let i = 0; i < friendsArr.length; i++){
-        _userData.friends.push(friendsArr[i].name.first +" " + friendsArr[i].name.last);
-       }
-        
+        // loop through the sliced friends array and push their full names to user data
+        for (let i = 0; i < friendsArr.length; i++) {
+            _userData.friends.push(friendsArr[i].name.first + " " + friendsArr[i].name.last);
+        }
+
     }
 
-    function getProperPokemonName(str){
+    function getProperPokemonName(str) {
         const name = str.charAt(0).toUpperCase() + str.slice(1);
         return name;
     }
-    function getPageData(){
+
+    function saveUserPage() {
+        let existUser = localStorage.getItem('mainUser');
+        if (!existUser) {
+            existUser = {};
+        }
+        else {
+            existUser = JSON.parse(existUser);
+        }
+
+        const userName = _userData.mainUser.name;
+        existUser[userName] = _userData;
+        localStorage.setItem('mainUser', JSON.stringify(existUser));
+    }
+
+
+    function getPageData() {
         return _userData;
     }
-    return{
+    return {
         loadPageData: loadPageData,
-        getPageData: getPageData
+        getPageData: getPageData,
+        saveUserPage: saveUserPage
     };
 };
