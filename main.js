@@ -11,6 +11,7 @@ addEventListener("DOMContentLoaded", () => {
         }
         catch (error) {
             console.error("Could not load Page:", error);
+            render.renderError("We couldn't fetch the data from the servers.")
         }
     }
 

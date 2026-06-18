@@ -53,8 +53,17 @@ const Renderer = function () {
         renderAboutMe(data.aboutMe);
         renderFriends(data.friends);
     }
+
+    function renderError(errorMessage){
+        const container = document.querySelector("#main-user-container");
+        container.innerHTML =`<div class="error-box">
+                                <h3>Error! Something went wrong</h3>
+                                <p>${errorMessage}</p>
+                                </div>`;
+    }
     return {
         renderPage: renderPage,
-        renderDropdown: renderDropdown
+        renderDropdown: renderDropdown,
+        renderError: renderError
     };
 };
