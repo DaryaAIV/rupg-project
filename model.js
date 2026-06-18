@@ -35,11 +35,12 @@ const Model = function () {
     }
 
     function getProperPokemonName(str) {
-        const name = str.charAt(0).toUpperCase() + str.slice(1);
-        return name;
+        return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
+   
     function saveUserPage() {
+         //check if users object already exists in localStorage if not initialize an empty one
         let existUser = localStorage.getItem('mainUser');
         if (!existUser) {
             existUser = {};
@@ -72,6 +73,7 @@ const Model = function () {
     function getPageData() {
         return _userData;
     }
+
     return {
         loadPageData: loadPageData,
         getPageData: getPageData,

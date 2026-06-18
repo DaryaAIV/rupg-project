@@ -9,9 +9,10 @@ addEventListener("DOMContentLoaded", () => {
             const currData = model.getPageData();
             render.renderPage(currData);
         }
+        //handle the error by displaying a user friendly message on the UI
         catch (error) {
             console.error("Could not load Page:", error);
-            render.renderError("We couldn't fetch the data from the servers.")
+            render.renderError(`We couldn't fetch the data from the servers.<br> Don't worry! You can still access and load all your saved users offline`)
         }
     }
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="render.js"></script>
     <script src="main.js"></script>
 </head>
+
 <body>
     <div id="app-container">
 
@@ -19,9 +21,17 @@
         <div id="about-me-container"></div>
 
         <div class="actions-area">
-            <button id="btn-generate">Generate User</button>
+
+            <a href="#app-container">
+                <button id="btn-generate">Generate User</button>
+            </a>
+
             <button id="btn-save">Save User Page</button>
-            <button id="btn-load">Load User Page</button>
+
+            <a href="#app-container">
+                <button id="btn-load">Load User Page</button>
+            </a>
+
             <select id="saved-users-dropdown">
                 <option value="">Select a user to load</option>
             </select>
@@ -29,4 +39,5 @@
 
     </div>
 </body>
+
 </html>
