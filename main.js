@@ -4,27 +4,38 @@ addEventListener("DOMContentLoaded", () => {
     const render = Renderer();
 
     async function initApp() {
-        try{
+        try {
             await model.loadPageData();
             const currData = model.getPageData();
             render.renderPage(currData);
         }
-        catch(error) {
-            console.error("Could not load Page:",error );
+        catch (error) {
+            console.error("Could not load Page:", error);
         }
     }
 
-    initApp();
-    document.querySelector("#btn-generate").addEventListener("click", initApp);
-    document.querySelector("#btn-save").addEventListener("click", () => {
-        model.saveUserPage();
-    });
+    function updateDropdownOpt() {
+        const savedUsers = model.getAllSavedUsers();
+        render.renderDropdown(savedUsers);
+    }
 
-    document.querySelector("#btn-load").addEventListener("click", () => {
-        model.loadSavedPage("Ari De Vreeze");
+    function loadSelectedUser() {
+        const selectedName = document.querySelector("#saved-users-dropdown").value;
+        model.loadSavedPage(selectedName);
         const currData = model.getPageData();
         render.renderPage(currData);
+    }
+
+    initApp();
+    updateDropdownOpt();
+
+    document.querySelector("#btn-generate").addEventListener("click", initApp);
+
+    document.querySelector("#btn-save").addEventListener("click", () => {
+        model.saveUserPage();
+        updateDropdownOpt();
     });
 
+    document.querySelector("#btn-load").addEventListener("click", loadSelectedUser);
 
 });
