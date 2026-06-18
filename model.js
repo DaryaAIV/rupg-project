@@ -59,6 +59,15 @@ const Model = function () {
         _userData = selectedUser;
     }
 
+    function getAllSavedUsers() {
+        const allUsers = localStorage.getItem('mainUser');
+        if (allUsers) {
+            return JSON.parse(allUsers);
+        }
+        else {
+            return {};
+        }
+    }
 
     function getPageData() {
         return _userData;
@@ -67,6 +76,7 @@ const Model = function () {
         loadPageData: loadPageData,
         getPageData: getPageData,
         saveUserPage: saveUserPage,
-        loadSavedPage: loadSavedPage
+        loadSavedPage: loadSavedPage,
+        getAllSavedUsers: getAllSavedUsers
     };
 };
