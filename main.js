@@ -23,6 +23,10 @@ addEventListener("DOMContentLoaded", () => {
 
     function loadSelectedUser() {
         const selectedName = document.querySelector("#saved-users-dropdown").value;
+
+        if (!selectedName || selectedName === "") {
+        return;
+    }
         model.loadSavedPage(selectedName);
         const currData = model.getPageData();
         render.renderPage(currData);
@@ -38,6 +42,5 @@ addEventListener("DOMContentLoaded", () => {
         updateDropdownOpt();
     });
 
-    document.querySelector("#btn-load").addEventListener("click", loadSelectedUser);
-
+    document.querySelector("#saved-users-dropdown").addEventListener("change", loadSelectedUser);
 });

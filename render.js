@@ -16,8 +16,11 @@ const Renderer = function () {
 
     function renderPokemon(pokemon) {
         const container = document.querySelector("#pokemon-container");
-        container.innerHTML = `<img src="${pokemon.image}" alt="pokemon image">
-                                <h3>${pokemon.name} </h3>`;
+        container.innerHTML = `<h2>Favorite pokemon</h2>
+                                <div class="pokemon-content">
+                                <img src="${pokemon.image}" alt="pokemon image">
+                                <h3>${pokemon.name} </h3>
+                                </div>`;
     }
 
     function renderAboutMe(text) {
@@ -29,7 +32,7 @@ const Renderer = function () {
     //generates an HTML list of friends and injects it into the container
     function renderFriends(friendsList) {
         const container = document.querySelector("#friends-container");
-        let friendsStr = "";
+        let friendsStr = `<h2>Friends:</h2>`;
         for (let i = 0; i < friendsList.length; i++) {
             friendsStr += `<li>${friendsList[i]}</li>`;
         }
@@ -52,6 +55,11 @@ const Renderer = function () {
         renderPokemon(data.pokemon);
         renderAboutMe(data.aboutMe);
         renderFriends(data.friends);
+
+        const dropdown = document.querySelector("#saved-users-dropdown");
+        if (dropdown) {
+            dropdown.value = "";
+        }
     }
 
     function renderError(errorMessage){

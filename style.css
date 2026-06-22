@@ -23,16 +23,28 @@ h3 {
     max-width: 1000px;
     position: relative;
 }
+.user-section{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+}
 
 #main-user-container,
 #quote-container,
 #pokemon-container,
-#about-me-container {
+#about-me-container,
+#friends-container {
     background-color: pink;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    width: 70%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#main-user-container,
+#friends-container{
+    width: 50%;
 }
 
 #main-user-container img {
@@ -51,13 +63,18 @@ h3 {
 }
 
 #pokemon-container {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.pokemon-content {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: flex-start;
 }
 
 #pokemon-container img {
-    width: 150px;
+    width: 160px;
 }
 
 #about-me-container p {
@@ -67,17 +84,7 @@ h3 {
 }
 
 #friends-container {
-    background-color: pink;
-    color: #7a4848;
     padding: 30px 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 25%;
-    height: 100%;
-    box-sizing: border-box;
 }
 
 #friends-container li {
@@ -91,15 +98,16 @@ h3 {
 
 .actions-area {
     display: flex;
-    width: 70%;
-    justify-content: center;
-    gap: 15px;
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+    box-sizing: border-box;
 
 }
 
 #btn-generate,
 #btn-save,
-#btn-load {
+#saved-users-dropdown {
     background-color: lightcoral;
     color: white;
     border: none;
@@ -113,25 +121,31 @@ h3 {
 
 #btn-generate:hover,
 #btn-save:hover,
-#btn-load:hover {
+#saved-users-dropdown:hover {
     background-color: indianred;
 }
 
 #saved-users-dropdown {
-    padding: 12px 24px;
-    border-radius: 5px;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: lightcoral;
-    color: white;
-    border: 1px lightcoral;
-    font-size: 16px;
-    font-weight: bold;
-
+    text-align: center;
 }
 
-#saved-users-dropdown:hover {
-    background-color: indianred;
+
+.actions-area > a,
+#btn-save,
+#saved-users-dropdown {
+    flex: 1;
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions-area > a > button {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .error-box {
